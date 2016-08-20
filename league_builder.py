@@ -1,21 +1,21 @@
 import csv
 
 def Dictinator():
-    '''Assigns the information from 'soccer_players.csv' to the Players dictionary.'''
+    '''Assigns the information from 'soccer_players.csv' to the league dictionary.'''
     i = 1
 
     with open("soccer_players.csv", newline='') as csvfile:
         soccerreader = csv.DictReader(csvfile, delimiter=',')
         rows = list(soccerreader)
         for row in rows[:]:
-            Players[i] = {}
-            Players[i]['Name'] = row['Name']
-            Players[i]['Height (inches)'] = row['Height (inches)']
-            Players[i]['Soccer Experience'] = row['Soccer Experience']
-            Players[i]['Guardian Name(s)'] = row['Guardian Name(s)']
+            league[i] = {}
+            league[i]['Name'] = row['Name']
+            league[i]['Height (inches)'] = row['Height (inches)']
+            league[i]['Soccer Experience'] = row['Soccer Experience']
+            league[i]['Guardian Name(s)'] = row['Guardian Name(s)']
             i = i + 1
 
-def Sharks(Dict):
+def Sharkinator(Dict):
     '''Assigns players to Team Sharks, first finding 3 children with prior soccer
        experience and then 3 children with none.'''
 
@@ -25,33 +25,33 @@ def Sharks(Dict):
 
     for player in Dict:
         if Dict[player]['Soccer Experience'] == 'YES' and len(experienced_players) < 3:
-            Team_Sharks[i] = {}
-            Team_Sharks[i]['Name'] = Dict[player]['Name']
-            Team_Sharks[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Sharks[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Sharks[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Sharks[i] = {}
+            Sharks[i]['Name'] = Dict[player]['Name']
+            Sharks[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Sharks[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Sharks[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             experienced_players.append(Dict[player]["Name"])
         elif Dict[player]['Soccer Experience'] == 'NO' and len(nonexperienced_players) < 3:
-            Team_Sharks[i] = {}
-            Team_Sharks[i]['Name'] = Dict[player]['Name']
-            Team_Sharks[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Sharks[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Sharks[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Sharks[i] = {}
+            Sharks[i]['Name'] = Dict[player]['Name']
+            Sharks[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Sharks[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Sharks[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             nonexperienced_players.append(Dict[player]["Name"])
 
 
     # Deletes children already assigned to Team Sharks from the list of available players.
-    for item in Team_Sharks:
-        assigned_players.append(Team_Sharks[item]['Name'])
+    for item in Sharks:
+        assigned_players.append(Sharks[item]['Name'])
 
     for i in range(1, 18):
         if Dict[i]["Name"] in assigned_players:
             del Dict[i]
 
 
-def Dragons(Dict):
+def Dragonator(Dict):
     '''Assigns players to Team Sharks, first finding 3 children with prior soccer
        experience and then 3 children with none.'''
 
@@ -62,38 +62,38 @@ def Dragons(Dict):
 
     for player in Dict:
         if Dict[player]['Soccer Experience'] == 'YES' and len(experienced_players) < 3:
-            Team_Dragons[i] = {}
-            Team_Dragons[i]['Name'] = Dict[player]['Name']
-            Team_Dragons[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Dragons[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Dragons[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Dragons[i] = {}
+            Dragons[i]['Name'] = Dict[player]['Name']
+            Dragons[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Dragons[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Dragons[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             experienced_players.append(Dict[player]["Name"])
         elif Dict[player]['Soccer Experience'] == 'NO' and len(nonexperienced_players) < 3:
-            Team_Dragons[i] = {}
-            Team_Dragons[i]['Name'] = Dict[player]['Name']
-            Team_Dragons[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Dragons[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Dragons[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Dragons[i] = {}
+            Dragons[i]['Name'] = Dict[player]['Name']
+            Dragons[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Dragons[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Dragons[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             nonexperienced_players.append(Dict[player]["Name"])
 
     # Deletes children already assigned to Team Sharks from the list of available players.
 
 
-    for item in Team_Dragons:
-        assigned_players.append(Team_Dragons[item]['Name'])
+    for item in Dragons:
+        assigned_players.append(Dragons[item]['Name'])
 
     i = 1
 
 
-    for i in range(len(Team_Sharks)+1, 18):
+    for i in range(len(Sharks)+1, 18):
         if Dict[i]["Name"] in assigned_players:
             del Dict[i]
         i += 1
 
 
-def Raptors(Dict):
+def Raptorator(Dict):
     '''Assigns players to Team Sharks, first finding 3 children with prior soccer
        experience and then 3 children with none.'''
 
@@ -103,25 +103,25 @@ def Raptors(Dict):
 
     for player in Dict:
         if Dict[player]['Soccer Experience'] == 'YES' and len(experienced_players) < 3:
-            Team_Raptors[i] = {}
-            Team_Raptors[i]['Name'] = Dict[player]['Name']
-            Team_Raptors[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Raptors[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Raptors[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Raptors[i] = {}
+            Raptors[i]['Name'] = Dict[player]['Name']
+            Raptors[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Raptors[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Raptors[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             experienced_players.append(Dict[player]["Name"])
         elif Dict[player]['Soccer Experience'] == 'NO' and len(nonexperienced_players) < 3:
-            Team_Raptors[i] = {}
-            Team_Raptors[i]['Name'] = Dict[player]['Name']
-            Team_Raptors[i]['Height (inches)'] = Dict[player]['Height (inches)']
-            Team_Raptors[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
-            Team_Raptors[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
+            Raptors[i] = {}
+            Raptors[i]['Name'] = Dict[player]['Name']
+            Raptors[i]['Height (inches)'] = Dict[player]['Height (inches)']
+            Raptors[i]['Soccer Experience'] = Dict[player]['Soccer Experience']
+            Raptors[i]['Guardian Name(s)'] = Dict[player]['Guardian Name(s)']
             i = i + 1
             nonexperienced_players.append(Dict[player]["Name"])
 
     # Deletes children already assigned to Team Sharks from the list of available players.
-    for item in Team_Raptors:
-        assigned_players.append(Team_Raptors[item]['Name'])
+    for item in Raptors:
+        assigned_players.append(Raptors[item]['Name'])
 
     i = 1
 
@@ -142,10 +142,10 @@ def Letters(Dict, String1, String2):
 
 if __name__ =='__main__':
     # Variables
-    Players = {}
-    Team_Sharks = {}
-    Team_Dragons = {}
-    Team_Raptors = {}
+    league = {}
+    Sharks = {}
+    Dragons = {}
+    Raptors = {}
     assigned_players = []
     v = 1
     i = 1
@@ -155,14 +155,14 @@ if __name__ =='__main__':
     Raptors_Practice = "March 18 at 1pm"
 
     Dictinator()
-    Player_Roster = Players
+    Player_Roster = league
 
     # Assigning players to teams
-    Sharks(Players)
-    Dragons(Players)
-    Raptors(Players)
+    Sharkinator(league)
+    Dragonator(league)
+    Raptorator(league)
 
     # Writing letters to guardians
-    Letters(Team_Sharks, "Sharks", Sharks_Practice)
-    Letters(Team_Dragons, "Dragons", Dragons_Practice)
-    Letters(Team_Raptors, "Raptors", Raptors_Practice)
+    Letters(Sharks, "Sharks", Sharks_Practice)
+    Letters(Dragons, "Dragons", Dragons_Practice)
+    Letters(Raptors, "Raptors", Raptors_Practice)
