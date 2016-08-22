@@ -133,12 +133,12 @@ def Letters(Dict, String1, String2):
         with open(filename.lower(), 'a') as file:
             file.write(
             "Dear {}, \n"
-            "\tCongratulations on your child making Team {}!"
+            "\tCongratulations on little {} making Team {}!"
             " Don't forget, team practice will be at \n"
             "The Derek Zoolander Center For Kids Who Can't Read Good And Wanna Learn To Do Other Stuff Good Too \n"
             "on {}.\n\n"
             "Sincerely,\n"
-            "Your Friendly Neighborhood Soccer Club".format(Dict[item]["Guardian Name(s)"], String1, String2))
+            "Your Friendly Neighborhood Soccer Club".format(Dict[item]["Guardian Name(s)"], Dict[item]["Name"], String1, String2))
 
 if __name__ =='__main__':
     # Variables
